@@ -9,7 +9,9 @@ _RE_LST = re.compile(r'^(?P<entity>[^.]+)\.(?P<group>[^.]*)\.(?P<description>[^.
 
 
 class ListNaming:
-
+    _RE_SWG_PROXY = re.compile(r'^(?P<entity>[^: ]+)(?::(?P<group>\S+))? automation (?P<description>.+) : (?P<type>\S+)$')
+_RE_SSE_PROXY = re.compile(r'^(?P<entity>[^: ]+)(?::(?P<group>\S+))? (?P<description>.+) : (?P<type>\S+)$')
+_RE_LST = re.compile(r'^(?P<entity>[^.]+)\.(?P<group>[^.]*)\.(?P<description>[^.]+)\.[^.]+\.(?P<type>[^.]+)\.lst$')
     def list_name(self, filename: str, swg: bool = True, sse: bool = False, reverse: bool = False) -> str:
        
         if swg and sse:
